@@ -11,8 +11,10 @@
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
 
         <mapping class="com.carsales.model.User" />
+        <mapping class="com.carsales.model.PriceHistory" />
+        <mapping class="com.carsales.model.Post" />
     </session-factory>
 </hibernate-configuration>
