@@ -18,17 +18,23 @@ public class Post {
     private int id;
     private String description;
     private LocalDateTime created;
+
     @ManyToOne
     @JoinColumn(name = "auto_user_id")
     private User user;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicle;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "auto_post_id")
     private List<PriceHistory> historyList;
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "participants",
             joinColumns = { @JoinColumn(name = "post_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") }
-    )
+            inverseJoinColumns = { @JoinColumn(name = "user_id")})
     private List<User> participants;
 }

@@ -16,5 +16,8 @@
         <mapping class="com.carsales.model.User" />
         <mapping class="com.carsales.model.PriceHistory" />
         <mapping class="com.carsales.model.Post" />
+        <mapping class="com.carsales.model.Engine" />
+        <mapping class="com.carsales.model.Driver" />
+        <mapping class="com.carsales.model.Vehicle" />
     </session-factory>
 </hibernate-configuration>
