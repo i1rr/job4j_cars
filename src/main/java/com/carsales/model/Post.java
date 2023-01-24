@@ -5,6 +5,8 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -29,12 +31,12 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "auto_post_id")
-    private List<PriceHistory> historyList;
+    private List<PriceHistory> historyList = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "participants",
             joinColumns = { @JoinColumn(name = "post_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id")})
-    private List<User> participants;
+    private List<User> participants = new ArrayList<>();
 }
